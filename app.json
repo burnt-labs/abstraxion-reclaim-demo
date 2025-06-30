@@ -9,14 +9,16 @@
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.burnt-val.abstraxionreclaimdemo"
     },
     "android": {
       "adaptiveIcon": {
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.burnt_val.abstraxionreclaimdemo"
     },
     "web": {
       "bundler": "metro",
@@ -25,6 +27,7 @@
     },
     "plugins": [
       "expo-router",
+      "@reclaimprotocol/inapp-rn-sdk",
       [
         "expo-splash-screen",
         {
