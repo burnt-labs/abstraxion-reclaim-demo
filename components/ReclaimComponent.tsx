@@ -8,6 +8,24 @@ import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const reclaimVerification = new ReclaimVerification();
 
+// Configure logging to listen to all SDK logs
+reclaimVerification.setOverrides({
+  logConsumer: {
+    // Listen to all SDK logs
+    onLogs: (logJsonString, cancel) => {
+      console.log('[Reclaim SDK]:', logJsonString);
+      // You can process logs here or send them to your logging service
+      // Call cancel() to stop receiving logs
+    },
+    
+    // Control telemetry (default: true)
+    canSdkCollectTelemetry: true,
+    
+    // Control console logging (default: enabled in dev mode)
+    canSdkPrintLogs: true
+  }
+});
+
 const RUM_CONTRACT_ADDRESS = process.env.EXPO_PUBLIC_RUM_CONTRACT_ADDRESS ?? "";
 
 const reclaimConfig = {
