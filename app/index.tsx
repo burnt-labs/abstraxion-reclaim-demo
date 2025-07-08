@@ -1,8 +1,11 @@
 import ReclaimComponent from "@/components/ReclaimComponent";
+import { useAbstraxionAccount } from "@burnt-labs/abstraxion-react-native";
 import React from "react";
-import { ScrollView, StyleSheet, Text, View } from "react-native";
+import { ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 export default function HomeScreen() {
+  const { isConnected, logout } = useAbstraxionAccount();
+
   return (
     <ScrollView
       style={styles.container}
@@ -21,6 +24,15 @@ export default function HomeScreen() {
       <View style={styles.componentContainer}>
         <ReclaimComponent />
       </View>
+
+      {isConnected && (
+        <TouchableOpacity
+          style={styles.logoutButton}
+          onPress={logout}
+        >
+          <Text style={styles.logoutButtonText}>Logout</Text>
+        </TouchableOpacity>
+      )}
     </ScrollView>
   );
 }
@@ -73,5 +85,17 @@ const styles = StyleSheet.create({
     marginBottom: 20,
     borderWidth: 1,
     borderColor: "#333333",
+  },
+  logoutButton: {
+    backgroundColor: "#ff4444",
+    padding: 15,
+    borderRadius: 8,
+    alignItems: "center",
+    marginTop: 20,
+  },
+  logoutButtonText: {
+    color: "#ffffff",
+    fontSize: 16,
+    fontWeight: "500",
   },
 });
