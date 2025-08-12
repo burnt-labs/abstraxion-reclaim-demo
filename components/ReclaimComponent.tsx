@@ -14,6 +14,7 @@ const reclaimConfig = {
   appId: process.env.EXPO_PUBLIC_RECLAIM_APP_ID ?? "",
   appSecret: process.env.EXPO_PUBLIC_RECLAIM_APP_SECRET ?? "",
   providerId: process.env.EXPO_PUBLIC_RECLAIM_PROVIDER_ID ?? "",
+  propertyName: process.env.EXPO_PUBLIC_RECLAIM_PROPERTY_NAME ?? "githubOrganizationName"
 };
 
 type Status =
@@ -23,6 +24,27 @@ type Status =
   | "executing"
   | "complete"
   | "error";
+
+const extractNameFromProof = (proof: any): string | null => {
+  try {
+    // The context contains the extractedParameters
+    const contextData = JSON.parse(proof.claimData.context);
+    
+    // Parse the HTML string to extract the name
+    const reclaimHtml = contextData.extractedParameters[reclaimConfig.propertyName];
+    
+    // Use a simple regex to extract the name
+    const nameMatch = reclaimHtml.match(/([^>]*)\n<\/a>/);
+    if (nameMatch && nameMatch[1]) {
+      return nameMatch[1].trim();
+    }
+    
+    return null;
+  } catch (error) {
+    console.log("Error extracting name from proof:", error);
+    return null;
+  }
+};
 
 export default function ReclaimComponent() {
   const { client } = useAbstraxionSigningClient();
@@ -99,37 +121,33 @@ export default function ReclaimComponent() {
         providerId: reclaimConfig.providerId,
       });
 
-      console.log("Verification result:", verificationResult);
-      setStatus("verification_complete");
+      console.log("Original verification result:", JSON.stringify(verificationResult, null, 2));
 
-      // Step 2: Execute RUM contract
-      setStatus("executing");
-      const claimInfo = {
-        provider: verificationResult.proofs[0].claimData.provider,
-        parameters: verificationResult.proofs[0].claimData.parameters,
-        context: verificationResult.proofs[0].claimData.context,
-      };
-
-      const signedClaim = {
-        claim: {
-          identifier: verificationResult.proofs[0].claimData.identifier,
-          owner: verificationResult.proofs[0].claimData.owner,
-          epoch: verificationResult.proofs[0].claimData.epoch,
-          timestampS: verificationResult.proofs[0].claimData.timestampS,
-        },
-        signatures: verificationResult.proofs[0].signatures,
+      // Use the EXACT data from the verification result without modification
+      const value = {
+        proof: {
+          claimInfo: {
+            provider: verificationResult.proofs[0].claimData.provider,
+            parameters: verificationResult.proofs[0].claimData.parameters,
+            context: verificationResult.proofs[0].claimData.context
+          },
+          signedClaim: {
+            claim: {
+              identifier: verificationResult.proofs[0].claimData.identifier,
+              owner: verificationResult.proofs[0].claimData.owner,
+              epoch: verificationResult.proofs[0].claimData.epoch,
+              timestampS: verificationResult.proofs[0].claimData.timestampS,
+            },
+            signatures: verificationResult.proofs[0].signatures
+          }
+        }
       };
 
       const executeMsg = {
-        update: {
-          value: {
-            proof: {
-              claimInfo: claimInfo,
-              signedClaim: signedClaim,
-            },
-          },
-        },
+        update: { value }
       };
+
+      console.log("Execute message:", JSON.stringify(executeMsg, null, 2));
 
       const executeResult = await client.execute(
         account?.bech32Address,
@@ -269,7 +287,7 @@ export default function ReclaimComponent() {
           </View>
           {queryResult !== undefined && (
             <View style={styles.infoContainer}>
-              <Text style={styles.infoTitle}>Verified Followers:</Text>
+              <Text style={styles.infoTitle}>Verified Data:</Text>
               <Text style={styles.infoText}>{queryResult}</Text>
             </View>
           )}

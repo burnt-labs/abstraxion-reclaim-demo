@@ -8,10 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
+		3C99261FFA9C438F9C354567 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 3E340D1ADA26D31D8758D34B /* PrivacyInfo.xcprivacy */; };
 		3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */; };
-		4BD2AB4231CA487BF4945958 /* PrivacyInfo.xcprivacy in Resources */ = {isa = PBXBuildFile; fileRef = 9827C1C62A2EAC33A827C504 /* PrivacyInfo.xcprivacy */; };
-		5363E80EDF5C403CF9F6E531 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5496622A9E62417E5DCD1CF1 /* ExpoModulesProvider.swift */; };
-		97E118FC00B0512A734375A9 /* libPods-abstraxionreclaimdemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 50456918DEA254293A3319D5 /* libPods-abstraxionreclaimdemo.a */; };
+		584B3A0A4D115E4424118317 /* libPods-abstraxionreclaimdemo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B0F7E505178B577135561121 /* libPods-abstraxionreclaimdemo.a */; };
+		7822B2CA2E70819117B79520 /* ExpoModulesProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E17C226FCC38B873CAF25F /* ExpoModulesProvider.swift */; };
 		BB2F792D24A3F905000567C9 /* Expo.plist in Resources */ = {isa = PBXBuildFile; fileRef = BB2F792C24A3F905000567C9 /* Expo.plist */; };
 		F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F11748412D0307B40044C1D9 /* AppDelegate.swift */; };
 /* End PBXBuildFile section */
@@ -20,13 +20,13 @@
 		13B07F961A680F5B00A75B9A /* abstraxionreclaimdemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = abstraxionreclaimdemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = abstraxionreclaimdemo/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = abstraxionreclaimdemo/Info.plist; sourceTree = "<group>"; };
-		50456918DEA254293A3319D5 /* libPods-abstraxionreclaimdemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-abstraxionreclaimdemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		5496622A9E62417E5DCD1CF1 /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-abstraxionreclaimdemo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
-		6A2900849B351F4939CC3910 /* Pods-abstraxionreclaimdemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abstraxionreclaimdemo.debug.xcconfig"; path = "Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo.debug.xcconfig"; sourceTree = "<group>"; };
-		9827C1C62A2EAC33A827C504 /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = abstraxionreclaimdemo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		3518D5834D45B2720566D4BB /* Pods-abstraxionreclaimdemo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abstraxionreclaimdemo.debug.xcconfig"; path = "Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo.debug.xcconfig"; sourceTree = "<group>"; };
+		3E340D1ADA26D31D8758D34B /* PrivacyInfo.xcprivacy */ = {isa = PBXFileReference; includeInIndex = 1; name = PrivacyInfo.xcprivacy; path = abstraxionreclaimdemo/PrivacyInfo.xcprivacy; sourceTree = "<group>"; };
+		55E17C226FCC38B873CAF25F /* ExpoModulesProvider.swift */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.swift; name = ExpoModulesProvider.swift; path = "Pods/Target Support Files/Pods-abstraxionreclaimdemo/ExpoModulesProvider.swift"; sourceTree = "<group>"; };
 		AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = SplashScreen.storyboard; path = abstraxionreclaimdemo/SplashScreen.storyboard; sourceTree = "<group>"; };
+		B0F7E505178B577135561121 /* libPods-abstraxionreclaimdemo.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-abstraxionreclaimdemo.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		BB2F792C24A3F905000567C9 /* Expo.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Expo.plist; sourceTree = "<group>"; };
-		EA79537ABD6370F43B8F84EA /* Pods-abstraxionreclaimdemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abstraxionreclaimdemo.release.xcconfig"; path = "Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo.release.xcconfig"; sourceTree = "<group>"; };
+		C7282ACA9E38E047F16C413B /* Pods-abstraxionreclaimdemo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-abstraxionreclaimdemo.release.xcconfig"; path = "Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		F11748412D0307B40044C1D9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = abstraxionreclaimdemo/AppDelegate.swift; sourceTree = "<group>"; };
 		F11748442D0722820044C1D9 /* abstraxionreclaimdemo-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = "abstraxionreclaimdemo-Bridging-Header.h"; path = "abstraxionreclaimdemo/abstraxionreclaimdemo-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -37,23 +37,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				97E118FC00B0512A734375A9 /* libPods-abstraxionreclaimdemo.a in Frameworks */,
+				584B3A0A4D115E4424118317 /* libPods-abstraxionreclaimdemo.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		05DDD09311F66BDD8AB0C314 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				6A2900849B351F4939CC3910 /* Pods-abstraxionreclaimdemo.debug.xcconfig */,
-				EA79537ABD6370F43B8F84EA /* Pods-abstraxionreclaimdemo.release.xcconfig */,
-			);
-			name = Pods;
-			path = Pods;
-			sourceTree = "<group>";
-		};
 		13B07FAE1A68108700A75B9A /* abstraxionreclaimdemo */ = {
 			isa = PBXGroup;
 			children = (
@@ -63,7 +53,15 @@
 				13B07FB51A68108700A75B9A /* Images.xcassets */,
 				13B07FB61A68108700A75B9A /* Info.plist */,
 				AA286B85B6C04FC6940260E9 /* SplashScreen.storyboard */,
-				9827C1C62A2EAC33A827C504 /* PrivacyInfo.xcprivacy */,
+				3E340D1ADA26D31D8758D34B /* PrivacyInfo.xcprivacy */,
+			);
+			name = abstraxionreclaimdemo;
+			sourceTree = "<group>";
+		};
+		2CD5F53DC1BD58F7722B99E6 /* abstraxionreclaimdemo */ = {
+			isa = PBXGroup;
+			children = (
+				55E17C226FCC38B873CAF25F /* ExpoModulesProvider.swift */,
 			);
 			name = abstraxionreclaimdemo;
 			sourceTree = "<group>";
@@ -72,15 +70,15 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				50456918DEA254293A3319D5 /* libPods-abstraxionreclaimdemo.a */,
+				B0F7E505178B577135561121 /* libPods-abstraxionreclaimdemo.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		6AD3B8B7A0060A5479540F31 /* ExpoModulesProviders */ = {
+		5D538A79BE7011BA20C59186 /* ExpoModulesProviders */ = {
 			isa = PBXGroup;
 			children = (
-				B25506B4C03FD303E017DE22 /* abstraxionreclaimdemo */,
+				2CD5F53DC1BD58F7722B99E6 /* abstraxionreclaimdemo */,
 			);
 			name = ExpoModulesProviders;
 			sourceTree = "<group>";
@@ -99,8 +97,8 @@
 				832341AE1AAA6A7D00B99B32 /* Libraries */,
 				83CBBA001A601CBA00E9B192 /* Products */,
 				2D16E6871FA4F8E400B85C8A /* Frameworks */,
-				05DDD09311F66BDD8AB0C314 /* Pods */,
-				6AD3B8B7A0060A5479540F31 /* ExpoModulesProviders */,
+				F69526EBE9324251AEF706B9 /* Pods */,
+				5D538A79BE7011BA20C59186 /* ExpoModulesProviders */,
 			);
 			indentWidth = 2;
 			sourceTree = "<group>";
@@ -115,14 +113,6 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
-		B25506B4C03FD303E017DE22 /* abstraxionreclaimdemo */ = {
-			isa = PBXGroup;
-			children = (
-				5496622A9E62417E5DCD1CF1 /* ExpoModulesProvider.swift */,
-			);
-			name = abstraxionreclaimdemo;
-			sourceTree = "<group>";
-		};
 		BB2F792B24A3F905000567C9 /* Supporting */ = {
 			isa = PBXGroup;
 			children = (
@@ -130,6 +120,16 @@
 			);
 			name = Supporting;
 			path = abstraxionreclaimdemo/Supporting;
+			sourceTree = "<group>";
+		};
+		F69526EBE9324251AEF706B9 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				3518D5834D45B2720566D4BB /* Pods-abstraxionreclaimdemo.debug.xcconfig */,
+				C7282ACA9E38E047F16C413B /* Pods-abstraxionreclaimdemo.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -140,13 +140,13 @@
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "abstraxionreclaimdemo" */;
 			buildPhases = (
 				08A4A3CD28434E44B6B9DE2E /* [CP] Check Pods Manifest.lock */,
-				0E11FD7C08C204BC1AE67C4A /* [Expo] Configure project */,
+				F54413DC4F0D8664DB1B081B /* [Expo] Configure project */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
 				800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */,
-				BEDEE1E81CAA68A3471FEC52 /* [CP] Embed Pods Frameworks */,
+				7AB65A8C270C14DD2F27E014 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -196,7 +196,7 @@
 				BB2F792D24A3F905000567C9 /* Expo.plist in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				3E461D99554A48A4959DE609 /* SplashScreen.storyboard in Resources */,
-				4BD2AB4231CA487BF4945958 /* PrivacyInfo.xcprivacy in Resources */,
+				3C99261FFA9C438F9C354567 /* PrivacyInfo.xcprivacy in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -240,68 +240,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		0E11FD7C08C204BC1AE67C4A /* [Expo] Configure project */ = {
-			isa = PBXShellScriptBuildPhase;
-			alwaysOutOfDate = 1;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-			);
-			name = "[Expo] Configure project";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-abstraxionreclaimdemo/expo-configure-project.sh\"\n";
-		};
-		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo-resources.sh",
-				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoSystemUI/ExpoSystemUI_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
-				"${PODS_ROOT}/ReclaimInAppSdk/Sources/ReclaimInAppSdk/Resources/InAppSdk.version",
-				"${PODS_CONFIGURATION_BUILD_DIR}/ReclaimInAppSdk/ReclaimInAppSdk_Privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/boost/boost_privacy.bundle",
-				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoConstants_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoSystemUI_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InAppSdk.version",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReclaimInAppSdk_Privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/boost_privacy.bundle",
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		BEDEE1E81CAA68A3471FEC52 /* [CP] Embed Pods Frameworks */ = {
+		7AB65A8C270C14DD2F27E014 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -351,6 +290,67 @@
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
+		800E24972A6A228C8D4807E9 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo-resources.sh",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/EXConstants.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/EXConstants/ExpoConstants_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoFileSystem/ExpoFileSystem_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ExpoSystemUI/ExpoSystemUI_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RCT-Folly/RCT-Folly_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/RNCAsyncStorage/RNCAsyncStorage_resources.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-Core/React-Core_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/React-cxxreact/React-cxxreact_privacy.bundle",
+				"${PODS_ROOT}/ReclaimInAppSdk/Sources/ReclaimInAppSdk/Resources/InAppSdk.version",
+				"${PODS_CONFIGURATION_BUILD_DIR}/ReclaimInAppSdk/ReclaimInAppSdk_Privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/SDWebImage/SDWebImage.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/boost/boost_privacy.bundle",
+				"${PODS_CONFIGURATION_BUILD_DIR}/glog/glog_privacy.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/EXConstants.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoConstants_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoFileSystem_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ExpoSystemUI_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RCT-Folly_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/RNCAsyncStorage_resources.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-Core_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/React-cxxreact_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/InAppSdk.version",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ReclaimInAppSdk_Privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SDWebImage.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/boost_privacy.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/glog_privacy.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-abstraxionreclaimdemo/Pods-abstraxionreclaimdemo-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F54413DC4F0D8664DB1B081B /* [Expo] Configure project */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "[Expo] Configure project";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# This script configures Expo modules and generates the modules provider file.\nbash -l -c \"./Pods/Target\\ Support\\ Files/Pods-abstraxionreclaimdemo/expo-configure-project.sh\"\n";
+		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -359,7 +359,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F11748422D0307B40044C1D9 /* AppDelegate.swift in Sources */,
-				5363E80EDF5C403CF9F6E531 /* ExpoModulesProvider.swift in Sources */,
+				7822B2CA2E70819117B79520 /* ExpoModulesProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -368,7 +368,7 @@
 /* Begin XCBuildConfiguration section */
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 6A2900849B351F4939CC3910 /* Pods-abstraxionreclaimdemo.debug.xcconfig */;
+			baseConfigurationReference = 3518D5834D45B2720566D4BB /* Pods-abstraxionreclaimdemo.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -404,7 +404,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EA79537ABD6370F43B8F84EA /* Pods-abstraxionreclaimdemo.release.xcconfig */;
+			baseConfigurationReference = C7282ACA9E38E047F16C413B /* Pods-abstraxionreclaimdemo.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
