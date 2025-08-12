@@ -14,7 +14,7 @@ const reclaimConfig = {
   appId: process.env.EXPO_PUBLIC_RECLAIM_APP_ID ?? "",
   appSecret: process.env.EXPO_PUBLIC_RECLAIM_APP_SECRET ?? "",
   providerId: process.env.EXPO_PUBLIC_RECLAIM_PROVIDER_ID ?? "",
-  propertyName: process.env.EXPO_PUBLIC_RECLAIM_PROPERTY_NAME ?? "githubOrganizationName"
+  propertyName: process.env.PROOF_PROPERTY_NAME ?? "the_property_name_same_as_in_the_contract_claim_key_same_as_in_the_reclaim_provider"
 };
 
 type Status =
@@ -25,23 +25,23 @@ type Status =
   | "complete"
   | "error";
 
-const extractNameFromProof = (proof: any): string | null => {
+const extractPropertyFromProof = (proof: any): string | null => {
   try {
     // The context contains the extractedParameters
     const contextData = JSON.parse(proof.claimData.context);
     
-    // Parse the HTML string to extract the name
+    // Parse the HTML string to extract the property
     const reclaimHtml = contextData.extractedParameters[reclaimConfig.propertyName];
     
-    // Use a simple regex to extract the name
-    const nameMatch = reclaimHtml.match(/([^>]*)\n<\/a>/);
-    if (nameMatch && nameMatch[1]) {
-      return nameMatch[1].trim();
+    // Use a simple regex to extract the property
+    const propertyMatch = reclaimHtml.match(/([^>]*)\n<\/a>/);
+    if (propertyMatch && propertyMatch[1]) {
+      return propertyMatch[1].trim();
     }
     
     return null;
   } catch (error) {
-    console.log("Error extracting name from proof:", error);
+    console.log("Error extracting property from proof:", error);
     return null;
   }
 };
