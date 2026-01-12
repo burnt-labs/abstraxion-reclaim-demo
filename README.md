@@ -1,4 +1,4 @@
-# Welcome to your Abstaxion x Reclaim Expo App
+# Welcome to your Abstraxion x Reclaim Expo App
 
 For more elaborate docs, please visit: https://docs.burnt.com/xion/developers/mobile-app-development/zktls-integration-using-reclaim-in-a-xion-mobile-app
 
