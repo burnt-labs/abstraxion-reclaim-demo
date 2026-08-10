@@ -1,5 +1,6 @@
 import {
   useAbstraxionAccount,
+  useAbstraxionClient,
   useAbstraxionSigningClient,
 } from "@burnt-labs/abstraxion-react-native";
 import { ReclaimVerification } from "@reclaimprotocol/inapp-rn-sdk";
@@ -7,6 +8,26 @@ import { useEffect, useState } from "react";
 import { Alert, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 const reclaimVerification = new ReclaimVerification();
+
+interface ExecuteClient {
+  execute(
+    senderAddress: string,
+    contractAddress: string,
+    msg: Record<string, unknown>,
+    fee: "auto" | number | Record<string, unknown>,
+  ): Promise<unknown>;
+}
+
+function requireExecuteClient(client: unknown): ExecuteClient {
+  if (
+    client &&
+    typeof client === "object" &&
+    typeof (client as Partial<ExecuteClient>).execute === "function"
+  ) {
+    return client as ExecuteClient;
+  }
+  throw new Error("The connected signing client does not support contract execution.");
+}
 
 const RUM_CONTRACT_ADDRESS = process.env.EXPO_PUBLIC_RUM_CONTRACT_ADDRESS ?? "";
 
@@ -26,6 +47,7 @@ type Status =
 
 export default function ReclaimComponent() {
   const { client } = useAbstraxionSigningClient();
+  const { client: queryClient } = useAbstraxionClient();
   const {
     data: account,
     isConnected,
@@ -38,7 +60,7 @@ export default function ReclaimComponent() {
   const [loading, setLoading] = useState(false);
 
   const queryRUMContract = async () => {
-    if (!client) {
+    if (!queryClient) {
       console.log("Client not available for query");
       return;
     }
@@ -50,7 +72,7 @@ export default function ReclaimComponent() {
         },
       };
 
-      const result: string = await client.queryContractSmart(
+      const result: string = await queryClient.queryContractSmart(
         RUM_CONTRACT_ADDRESS,
         queryMsg
       );
@@ -67,10 +89,10 @@ export default function ReclaimComponent() {
 
   // Query on mount when client is available
   useEffect(() => {
-    if (client) {
+    if (queryClient) {
       queryRUMContract();
     }
-  }, [client]);
+  }, [queryClient]);
 
   const startVerificationFlow = async () => {
     if (!account?.bech32Address) {
@@ -131,7 +153,7 @@ export default function ReclaimComponent() {
         },
       };
 
-      const executeResult = await client.execute(
+      const executeResult = await requireExecuteClient(client).execute(
         account?.bech32Address,
         RUM_CONTRACT_ADDRESS,
         executeMsg,
