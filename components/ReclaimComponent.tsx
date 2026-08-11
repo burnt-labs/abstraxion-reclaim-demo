@@ -18,6 +18,24 @@ interface ExecuteClient {
   ): Promise<unknown>;
 }
 
+interface QueryClient {
+  queryContractSmart(
+    contractAddress: string,
+    query: Record<string, unknown>,
+  ): Promise<string>;
+}
+
+async function queryRUMValue(
+  client: QueryClient,
+  address: string | undefined,
+): Promise<number | undefined> {
+  const result = await client.queryContractSmart(RUM_CONTRACT_ADDRESS, {
+    get_value_by_user: { address },
+  });
+  const parsedResult = Number.parseInt(result.replace(/"/g, ""), 10);
+  return Number.isNaN(parsedResult) ? undefined : parsedResult;
+}
+
 function requireExecuteClient(client: unknown): ExecuteClient {
   if (
     client &&
@@ -66,21 +84,9 @@ export default function ReclaimComponent() {
     }
 
     try {
-      const queryMsg = {
-        get_value_by_user: {
-          address: account?.bech32Address,
-        },
-      };
-
-      const result: string = await queryClient.queryContractSmart(
-        RUM_CONTRACT_ADDRESS,
-        queryMsg
+      setQueryResult(
+        await queryRUMValue(queryClient, account?.bech32Address),
       );
-
-      // Parse the string result to number, handling quoted strings
-      const cleanResult = result.replace(/"/g, ""); // Remove quotes
-      const parsedResult = parseInt(cleanResult, 10);
-      setQueryResult(isNaN(parsedResult) ? undefined : parsedResult);
     } catch (error) {
       console.log("Error querying RUM contract:", error);
       // Don't show alert for initial query, just log the error
@@ -89,10 +95,30 @@ export default function ReclaimComponent() {
 
   // Query on mount when client is available
   useEffect(() => {
-    if (queryClient) {
-      queryRUMContract();
+    if (!queryClient) {
+      return;
     }
-  }, [queryClient]);
+
+    let cancelled = false;
+    const loadInitialValue = async () => {
+      try {
+        const value = await queryRUMValue(
+          queryClient,
+          account?.bech32Address,
+        );
+        if (!cancelled) {
+          setQueryResult(value);
+        }
+      } catch (error) {
+        console.log("Error querying RUM contract:", error);
+      }
+    };
+
+    void loadInitialValue();
+    return () => {
+      cancelled = true;
+    };
+  }, [account?.bech32Address, queryClient]);
 
   const startVerificationFlow = async () => {
     if (!account?.bech32Address) {

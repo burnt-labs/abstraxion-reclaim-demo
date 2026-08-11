@@ -1,11 +1,6 @@
 import { AbstraxionProvider } from "@burnt-labs/abstraxion-react-native";
-import {
-  DarkTheme,
-  DefaultTheme,
-  ThemeProvider,
-} from "@react-navigation/native";
 import { useFonts } from "expo-font";
-import { Stack } from "expo-router";
+import { DarkTheme, DefaultTheme, Stack, ThemeProvider } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import "react-native-reanimated";
 
@@ -13,7 +8,11 @@ import { useColorScheme } from "@/hooks/useColorScheme";
 
 import { Buffer } from "buffer";
 import crypto from "react-native-quick-crypto";
-global.crypto = crypto;
+Object.defineProperty(global, "crypto", {
+  configurable: true,
+  value: crypto,
+  writable: true,
+});
 global.Buffer = Buffer;
 
 const treasuryConfig = {
