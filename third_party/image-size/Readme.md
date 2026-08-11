@@ -83,14 +83,16 @@ sizeOf("images/funny-cats.png")
 
 ```javascript
 const { promisify } = require("util")
-const sizeOf = promisify(require("image-size"))(async () => {
+const sizeOf = promisify(require("image-size"))
+
+;(async () => {
   try {
     const dimensions = await sizeOf("images/funny-cats.png")
     console.log(dimensions.width, dimensions.height)
   } catch (err) {
     console.error(err)
   }
-})().then((c) => console.log(c))
+})()
 ```
 
 ### Multi-size

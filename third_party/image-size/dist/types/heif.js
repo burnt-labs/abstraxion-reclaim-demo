@@ -19,19 +19,19 @@ exports.HEIF = {
         const ftypBox = (0, utils_1.findBox)(input, 'ftyp', 0);
         if (!ftypBox)
             return false;
-        const brand = (0, utils_1.toUTF8String)(input, ftypBox.offset + 8, ftypBox.offset + 12);
+        const brand = (0, utils_1.toUTF8String)(input, ftypBox.offset + ftypBox.headerSize, ftypBox.offset + ftypBox.headerSize + 4);
         return brand in brandMap;
     },
     calculate(input) {
         // Based on https://nokiatech.github.io/heif/technical.html
         const metaBox = (0, utils_1.findBox)(input, 'meta', 0);
-        const iprpBox = metaBox && (0, utils_1.findBox)(input, 'iprp', metaBox.offset + 12);
-        const ipcoBox = iprpBox && (0, utils_1.findBox)(input, 'ipco', iprpBox.offset + 8);
-        const ispeBox = ipcoBox && (0, utils_1.findBox)(input, 'ispe', ipcoBox.offset + 8);
+        const iprpBox = metaBox && (0, utils_1.findBox)(input, 'iprp', metaBox.offset + metaBox.headerSize + 4);
+        const ipcoBox = iprpBox && (0, utils_1.findBox)(input, 'ipco', iprpBox.offset + iprpBox.headerSize);
+        const ispeBox = ipcoBox && (0, utils_1.findBox)(input, 'ispe', ipcoBox.offset + ipcoBox.headerSize);
         if (ispeBox) {
             return {
-                height: (0, utils_1.readUInt32BE)(input, ispeBox.offset + 16),
-                width: (0, utils_1.readUInt32BE)(input, ispeBox.offset + 12),
+                height: (0, utils_1.readUInt32BE)(input, ispeBox.offset + ispeBox.headerSize + 8),
+                width: (0, utils_1.readUInt32BE)(input, ispeBox.offset + ispeBox.headerSize + 4),
                 type: (0, utils_1.toUTF8String)(input, 8, 12),
             };
         }

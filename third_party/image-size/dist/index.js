@@ -22,7 +22,7 @@ const globalOptions = {
  * @param {String} filepath
  * @returns {Object}
  */
-function lookup(input, filepath) {
+function lookup(input, filepath, fileSize) {
     // detect the file type.. don't rely on the extension
     const type = (0, detector_1.detector)(input);
     if (typeof type !== 'undefined') {
@@ -31,7 +31,7 @@ function lookup(input, filepath) {
         }
         // find an appropriate handler for this file type
         if (type in index_1.typeHandlers) {
-            const size = index_1.typeHandlers[type].calculate(input, filepath);
+            const size = index_1.typeHandlers[type].calculate(input, filepath, fileSize);
             if (size !== undefined) {
                 size.type = size.type ?? type;
                 return size;
@@ -56,7 +56,7 @@ async function readFileAsync(filepath) {
         const inputSize = Math.min(size, MaxInputSize);
         const input = new Uint8Array(inputSize);
         await handle.read(input, 0, inputSize, 0);
-        return input;
+        return { input, size };
     }
     finally {
         await handle.close();
@@ -79,7 +79,7 @@ function readFileSync(filepath) {
         const inputSize = Math.min(size, MaxInputSize);
         const input = new Uint8Array(inputSize);
         fs.readSync(descriptor, input, 0, inputSize, 0);
-        return input;
+        return { input, size };
     }
     finally {
         fs.closeSync(descriptor);
@@ -105,12 +105,12 @@ function imageSize(input, callback) {
     const filepath = path.resolve(input);
     if (typeof callback === 'function') {
         queue.push(() => readFileAsync(filepath)
-            .then((input) => process.nextTick(callback, null, lookup(input, filepath)))
+            .then(({ input, size }) => process.nextTick(callback, null, lookup(input, filepath, size)))
             .catch(callback));
     }
     else {
-        const input = readFileSync(filepath);
-        return lookup(input, filepath);
+        const { input, size } = readFileSync(filepath);
+        return lookup(input, filepath, size);
     }
 }
 exports.imageSize = imageSize;

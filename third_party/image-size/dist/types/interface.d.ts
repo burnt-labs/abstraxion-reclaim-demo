@@ -9,5 +9,5 @@ export type ISizeCalculationResult = {
 } & ISize;
 export interface IImage {
     validate: (input: Uint8Array) => boolean;
-    calculate: (input: Uint8Array, filepath?: string) => ISizeCalculationResult;
+    calculate: (input: Uint8Array, filepath?: string, fileSize?: number) => ISizeCalculationResult;
 }

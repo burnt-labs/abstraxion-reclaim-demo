@@ -10,6 +10,7 @@ export declare const readUInt32LE: (input: Uint8Array, offset?: number) => numbe
 export declare function readUInt(input: Uint8Array, bits: 16 | 32, offset: number, isBigEndian: boolean): number;
 export declare function findBox(input: Uint8Array, boxName: string, offset: number): {
     name: string;
+    headerSize: number;
     offset: number;
     size: number;
 } | undefined;

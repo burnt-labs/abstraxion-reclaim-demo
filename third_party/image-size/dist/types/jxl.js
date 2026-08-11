@@ -7,7 +7,7 @@ const jxl_stream_1 = require("./jxl-stream");
 function extractCodestream(input) {
     const jxlcBox = (0, utils_1.findBox)(input, 'jxlc', 0);
     if (jxlcBox) {
-        return input.slice(jxlcBox.offset + 8, jxlcBox.offset + jxlcBox.size);
+        return input.slice(jxlcBox.offset + jxlcBox.headerSize, jxlcBox.offset + jxlcBox.size);
     }
     const partialStreams = extractPartialStreams(input);
     if (partialStreams.length > 0) {
@@ -23,7 +23,7 @@ function extractPartialStreams(input) {
         const jxlpBox = (0, utils_1.findBox)(input, 'jxlp', offset);
         if (!jxlpBox)
             break;
-        partialStreams.push(input.slice(jxlpBox.offset + 12, jxlpBox.offset + jxlpBox.size));
+        partialStreams.push(input.slice(jxlpBox.offset + jxlpBox.headerSize + 4, jxlpBox.offset + jxlpBox.size));
         offset = jxlpBox.offset + jxlpBox.size;
     }
     return partialStreams;
@@ -47,7 +47,7 @@ exports.JXL = {
         const ftypBox = (0, utils_1.findBox)(input, 'ftyp', 0);
         if (!ftypBox)
             return false;
-        const brand = (0, utils_1.toUTF8String)(input, ftypBox.offset + 8, ftypBox.offset + 12);
+        const brand = (0, utils_1.toUTF8String)(input, ftypBox.offset + ftypBox.headerSize, ftypBox.offset + ftypBox.headerSize + 4);
         return brand === 'jxl ';
     },
     calculate(input) {

@@ -51,13 +51,26 @@ exports.readUInt = readUInt;
 function readBox(input, offset) {
     if (input.length - offset < 8)
         return;
-    const boxSize = (0, exports.readUInt32BE)(input, offset);
-    if (boxSize < 8)
+    const encodedSize = (0, exports.readUInt32BE)(input, offset);
+    let boxSize = encodedSize;
+    let headerSize = 8;
+    if (encodedSize === 1) {
+        if (input.length - offset < 16)
+            return;
+        const high = (0, exports.readUInt32BE)(input, offset + 8);
+        const low = (0, exports.readUInt32BE)(input, offset + 12);
+        boxSize = high * 2 ** 32 + low;
+        headerSize = 16;
+        if (!Number.isSafeInteger(boxSize))
+            throw new TypeError('image box size exceeds the safe integer range');
+    }
+    if (boxSize < headerSize)
         throw new TypeError('invalid image box size');
     if (input.length - offset < boxSize)
         return;
     return {
         name: (0, exports.toUTF8String)(input, 4 + offset, 8 + offset),
+        headerSize,
         offset,
         size: boxSize,
     };

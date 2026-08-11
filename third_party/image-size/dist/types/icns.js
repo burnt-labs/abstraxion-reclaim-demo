@@ -72,7 +72,7 @@ function readImageHeader(input, imageOffset, fileLength) {
         (0, utils_1.toUTF8String)(input, imageOffset, imageLengthOffset),
         (0, utils_1.readUInt32BE)(input, imageLengthOffset),
     ];
-    if (imageHeader[1] < SIZE_HEADER || imageOffset + imageHeader[1] > input.length || imageOffset + imageHeader[1] > fileLength) {
+    if (imageHeader[1] < SIZE_HEADER || imageOffset + imageHeader[1] > fileLength) {
         throw new TypeError('invalid ICNS image entry length');
     }
     return imageHeader;
@@ -83,10 +83,11 @@ function getImageSize(type) {
 }
 exports.ICNS = {
     validate: (input) => (0, utils_1.toUTF8String)(input, 0, 4) === 'icns',
-    calculate(input) {
+    calculate(input, _filepath, actualFileLength) {
         const inputLength = input.length;
         const fileLength = (0, utils_1.readUInt32BE)(input, FILE_LENGTH_OFFSET);
-        if (fileLength < SIZE_HEADER || fileLength > inputLength) {
+        const availableLength = actualFileLength ?? inputLength;
+        if (fileLength < SIZE_HEADER || fileLength > availableLength) {
             throw new TypeError('invalid ICNS file length');
         }
         let imageOffset = SIZE_HEADER;
